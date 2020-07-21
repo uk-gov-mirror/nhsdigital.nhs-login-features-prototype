@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block pageTitle %}
+  Mini hub - Main page
+{% endblock %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    href: "/",
+    text: "Home"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+      <h1>
+        Alternative challenge response
+        <span class="nhsuk-caption-xl nhsuk-caption--bottom ">
+        Looking at alternative options to saying the 4 numbers in the manual PYI journey.
+        </span>
+      </h1>
+
+</div>
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
+        <h2 class="nhsuk-u-visually-hidden">Contents</h2>
+        <ol class="nhsuk-contents-list__list">
+          <li class="nhsuk-contents-list__item">
+            <a class="nhsuk-contents-list__link" href="alt-challenge-response/v1/index">Version 1</a>  <strong class="nhsuk-tag app-phase-banner__tag">Untested</strong>
+          </li>
+        </ol>
+      </nav>
+
+    </div>
+
+
+        <div class="nhsuk-grid-column-one-quarter">
+        <ul>
+          <li><a href="#" target="_blank">Jira</a></li>
+          <li><a href="#" target="_blank">Confluence</a></li>
+          <li><a href="https://miro.com/app/board/o9J_krHsJRo=/" target="_blank">Miro</a></li>
+        </ul>
+
+  </div>
+
+  </div>
+{% endblock %}

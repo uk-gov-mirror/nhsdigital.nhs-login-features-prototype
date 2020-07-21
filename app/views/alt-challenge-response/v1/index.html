@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}
+Access {{ serviceName }} - Step 2 of 3 - Match your face to your photo I.D.
+{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+<h1 class="heading-large">
+<span class="nhsuk-caption-l">Step 2 of 3</span>
+    Match your face to your photo I.D.</h1>
+
+		<p>We need to match your face with your photo I.D. so we know it's you.</p>
+
+		<p>We will use your device's camera to scan your face. We will tell you what to do on the next page. </p>
+
+		<p>During the scan the screen will flash and change colour.</p>
+
+		<h2>If flashing lights or colours make you feel unwell, you do not need to do the scan.</h2>
+
+    <div class="nhsuk-form-group">
+      <form action="index" method="post">
+
+        <fieldset class="nhsuk-fieldset">
+          <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            <h1 class="nhsuk-fieldset__heading">
+              What do you want to do?
+            </h1>
+          </legend>
+
+          <div class="nhsuk-radios">
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="scanorvideo-1" name="scanorvideo" type="radio" value="scan">
+              <label class="nhsuk-label nhsuk-radios__label" for="scanorvideo-1">
+                Scan my face
+              </label>
+            </div>
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="scanorvideo-2" name="scanorvideo" type="radio" value="video">
+              <label class="nhsuk-label nhsuk-radios__label" for="scanorvideo-2">
+                Flashing lights make me feel unwell - record a video instead
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+      <button class="nhsuk-button">Continue</button>
+
+		</form>
+
+    </div>
+
+
+
+
+	{# ====================== DEV MODE ============================
+   {% if devMode === "true" %}
+	<details class="dev-mode" role="group" >
+		<summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+			<span class="details__summary">Continue with testing scenario</span>
+		</summary>
+		<div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+			<div class="reading-width">
+
+				<p>Happy path</p>
+				<ol>
+					<li><a href="service-access-iproov-enrolment{{ params }}">Enrolment and scan token success</a></li>
+				</ol>
+
+				<p>Enrolment errors</p>
+				<ol>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=500">Enrolment fail - (500 error)</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=tps">Enrolment fail - (429 continuous TPS errors)</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=face">Enrolment fail - (400 quality issue)</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=disallowed">Enrolment fail - (400 error:Disallowed)</a></li>
+				</ol>
+
+				<p>Scan token generation errors (possibly not needed)</p>
+				<ol>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovTokenFailReason=400">Scan token generation error</a></li>
+				</ol>
+			</div>
+		</div>
+	</details>
+	{% endif %} #}
+
+</div>
+
+{% endblock %}

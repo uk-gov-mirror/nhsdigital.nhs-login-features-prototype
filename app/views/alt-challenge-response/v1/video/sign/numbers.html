@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}
+Access {{ serviceName }} - Step 2 of 3 - Get ready to show us your numbers
+{% endblock %}
+
+{% set signedin = 'true' %}
+{% set params = "?service=" + service + "&serviceName=" + serviceName + "&emailAddress=" + emailAddress + "&mobileNum=" + mobileNum + "&idType=" + idType + "&hidehead=" + hidehead + "&challenge=" + challenge + "&devMode=" + devMode + "&returnUrl=" + returnUrl + "&genericButton=" + genericButton + "&manual=" + manual %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+	      <div class="nhsuk-back-link">
+  <a class="nhsuk-back-link__link" href="/alt-challenge-response/v1/video/sign/index">
+    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
+    </svg>
+    Back</a>
+</div>
+<br>
+
+<h2>
+Get ready to show us your numbers</h2>
+
+<p>Show us these numbers using British Sign Language.</p>
+
+<h1> 1 3 5 4 </h1>
+<b>Insert an image displaying hands here maybe?</b>
+<br>
+<br>
+
+<p>When you are ready to record your video, click open camcorder.</p>
+
+
+
+      <a href="/alt-challenge-response/v1/video/sign/numbers" role="button" draggable="false" class="nhsuk-button">Open camcorder</a>
+
+    </div>
+
+
+
+
+	{# ====================== DEV MODE ============================
+   {% if devMode === "true" %}
+	<details class="dev-mode" role="group" >
+		<summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="true">
+			<span class="details__summary">Continue with testing scenario</span>
+		</summary>
+		<div class="callout callout--info callout--friendly" id="details-content-0" aria-hidden="false">
+			<div class="reading-width">
+
+				<p>Happy path</p>
+				<ol>
+					<li><a href="service-access-iproov-enrolment{{ params }}">Enrolment and scan token success</a></li>
+				</ol>
+
+				<p>Enrolment errors</p>
+				<ol>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=500">Enrolment fail - (500 error)</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=tps">Enrolment fail - (429 continuous TPS errors)</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=face">Enrolment fail - (400 quality issue)</a></li>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovEnrolFailReason=disallowed">Enrolment fail - (400 error:Disallowed)</a></li>
+				</ol>
+
+				<p>Scan token generation errors (possibly not needed)</p>
+				<ol>
+					<li><a href="service-access-iproov-enrolment{{ params }}&iproovTokenFailReason=400">Scan token generation error</a></li>
+				</ol>
+			</div>
+		</div>
+	</details>
+	{% endif %} #}
+
+</div>
+
+{% endblock %}
