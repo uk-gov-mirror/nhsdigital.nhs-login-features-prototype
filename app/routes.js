@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Add your routes here - above the module.exports line
 
+
 // Branching on scan or video
 router.post('/alt-challenge-response/v1/index', function (req, res) {
 
@@ -34,6 +35,10 @@ router.post('/alt-challenge-response/v1/video/index', function (req, res) {
       // Send user to scan
       res.redirect('/alt-challenge-response/v1/video/say')
     }
+    if (sayorsign == "write"){
+        // Send user to scan
+        res.redirect('/alt-challenge-response/v1/video/write')
+      }
     else {
       // Send user to video
       res.redirect('/alt-challenge-response/v1/video/sign')
