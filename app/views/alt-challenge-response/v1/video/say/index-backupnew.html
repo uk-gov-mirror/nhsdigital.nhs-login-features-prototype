@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block page_title %}
-Access {{ serviceName }} - Step 2 of 3 - Get ready to show us your numbers
+Access {{ serviceName }} - Step 2 of 3 - How to record your video
 {% endblock %}
 
 {% set signedin = 'true' %}
@@ -12,7 +12,7 @@ Access {{ serviceName }} - Step 2 of 3 - Get ready to show us your numbers
     <div class="nhsuk-grid-column-two-thirds">
 
 	      <div class="nhsuk-back-link">
-  <a class="nhsuk-back-link__link" href="/alt-challenge-response/v1/video/sign/index">
+  <a class="nhsuk-back-link__link" href="/alt-challenge-response/v1/video/index">
     <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
       <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
     </svg>
@@ -21,21 +21,28 @@ Access {{ serviceName }} - Step 2 of 3 - Get ready to show us your numbers
 <br>
 
 <h2>
-Get ready to sign your numbers</h2>
+Say these 4 numbers when you record your video</h2>
 
-<p>Tell us these numbers using British Sign Language.</p>
+<p>Make sure we can see all of your face in the video.</p>
 
-<b>Insert an image displaying hands here maybe?</b>
-<br>
-<br>
+<h1> 7 5 3 1 </h1>
 
-<p>When you are ready to record your video, click open camcorder / video camera.</p>
-
+<form action="/alt-challenge-response/v1/video/say" method="POST" enctype="multipart/form-data" name="upload_form">
+  <div id="upload-button" class="nhsuk-button">Open camcorder / video camera</div>
+  <div id="upload-input">
+    <input id="video_file" name="video_file" type="file">
+  </div>
+</form>
+<div class="url-display"></div>
+<div class="embed-code"></div>
+<div class="video-display"></div>
+<img id="loader" src="https://i.imgur.com/s4Z4mdr.gif">
 
 
       <a href="/alt-challenge-response/v1/video/say/numbers/" role="button" draggable="false" class="nhsuk-button">Open camcorder / video camera</a>
 
     </div>
+
 
 
 
