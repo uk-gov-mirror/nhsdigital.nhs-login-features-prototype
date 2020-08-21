@@ -4,6 +4,10 @@
     - add custom CSS and JavaScript
 -->
 
+{% block extrascripts %}
+<script src="/onfido.min.js"></script>
+{% endblock %}
+
 <!-- Extends the layout from /docs/views/template.html -->
 {% extends "template.html" %}
 
