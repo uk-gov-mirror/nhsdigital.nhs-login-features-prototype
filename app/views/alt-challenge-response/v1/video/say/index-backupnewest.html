@@ -21,22 +21,28 @@ Access {{ serviceName }} - Step 2 of 3 - How to record your video
 <br>
 
 <h2>
-How to record your video</h2>
+Say these 4 numbers when you record your video</h2>
 
-<ol>
-  <li>Write the numbers clearly on a piece of paper.</li>
-  <li>Start recording your face.</li>
-  <li>Make sure your whole face is in the video.</li>
-  <li>Hold the paper to the camera to show the numbers.</li>
-</ol>
+<p>Make sure we can see all of your face in the video.</p>
 
-<p>Ask someone to help you record the video if it is easier.</p>
+<h1> 7 5 3 1 </h1>
 
-<h1> 9 7 6 7 </h1>
+<form action="/alt-challenge-response/v1/video/say" method="POST" enctype="multipart/form-data" name="upload_form">
+  <div id="upload-button" class="nhsuk-button">Open camcorder / video camera</div>
+  <div id="upload-input">
+    <input id="video_file" name="video_file" type="file">
+  </div>
+</form>
+<div class="url-display"></div>
+<div class="embed-code"></div>
+<div class="video-display"></div>
+<img id="loader" src="https://i.imgur.com/s4Z4mdr.gif">
 
-      <a href="/alt-challenge-response/v1/video/write/numbers" role="button" draggable="false" class="nhsuk-button">Open video camera / camcorder</a>
+
+      <a href="/alt-challenge-response/v1/video/say/numbers/" role="button" draggable="false" class="nhsuk-button">Open camcorder / video camera</a>
 
     </div>
+
 
 
 
